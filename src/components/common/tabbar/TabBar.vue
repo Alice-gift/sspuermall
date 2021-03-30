@@ -1,5 +1,6 @@
 <template>
   <div id="tab-bar">
+<!--    mainTabBar.vue里<tab-bar></tab-bar>里面的值来替换掉slot-->
     <slot></slot>
   </div>
 </template>
