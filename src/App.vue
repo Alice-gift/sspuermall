@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="wrapper">
 <!--    让detail的数据不要keep-alive-->
-    <keep-alive exclude = "Detail">
+    <keep-alive>
       <router-view/>
     </keep-alive>
 

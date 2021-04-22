@@ -1,6 +1,6 @@
 <template>
-<div class="goods-item" @click="itemClick">
-  <img :src="goodsItem.show.img" alt="" @load="imageLoad">
+<div class="goods-item">
+  <img :src="goodsItem.show.img" alt="">
   <div>
     <p>{{goodsItem.title}}</p>
   <span class="price">{{goodsItem.price}}</span>
@@ -24,9 +24,6 @@
     methods: {
       imageLoad() {
         this.$bus.$emit('itemImageLoad')
-      },
-      itemClick() {
-        this.$router.push('/detail/' + this.goodsItem.iid);
       }
     }
   }

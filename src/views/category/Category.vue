@@ -1,7 +1,7 @@
 <template>
- <div class="wrapper" ref="aaaa">
+ <div class="wrapper">
    <ul class="content">
-     <button @click="btnClick">按钮</button>
+     <button>按钮</button>
      <li>分类列表1</li>
      <li>分类列表2</li>
      <li>分类列表3</li>
@@ -1007,31 +1007,12 @@
 </template>
 
 <script>
-  import BScroll from 'better-scroll'
+
   export default {
     name: "Category",
     data() {
       return {
         scroll: null
-      }
-    },
-    mounted() {
-      // console.log(document.querySelector('.wrapper'));
-      this.scroll = new BScroll(this.$refs.aaaa, {
-        // probeType: 3,
-        // pullUpLoad: true
-      })
-      this.scroll.on('scroll', (position) => {
-        console.log(position);
-      })
-
-      this.scroll.on('pullingUp', () => {
-        console.log('上拉加载更多');
-      })
-    },
-    methods: {
-      btnClick() {
-        console.log('------')
       }
     }
   }
@@ -1043,6 +1024,6 @@
    background-color: red;
 
    overflow: hidden;
-   /*overflow-y: scroll*/
+   overflow-y: scroll
  }
 </style>

@@ -1,14 +1,14 @@
 <template>
   <div class="goods">
-    <goods-list-item v-for="(item,index) in goods" :key="index" :goods-item="item"/>
+    <goods-list-item v-for="(item, index) in goods" :goods-item="item" :key="index"/>
   </div>
 </template>
 
 <script>
-  import GoodsListItem from "./GoodsListItem";
+  import GoodsListItem from './GoodsListItem'
 
   export default {
-    name: "GoodList",
+    name: "GoodsList",
     components: {
       GoodsListItem
     },
@@ -31,5 +31,6 @@
 
     padding: 2px;
   }
+
 
 </style>

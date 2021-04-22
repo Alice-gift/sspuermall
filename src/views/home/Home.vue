@@ -16,7 +16,7 @@
      <recommend-vue :recommends = "recommends"/>
      <feature-view/>
      <tab-control :titles="['流行', '新款', '精选']"
-                  @tabClick="tabClick"
+                    @tabClick="tabClick"
                    ref="tabControl2"/>
      <good-list :goods="showGoods"/>
 
@@ -81,7 +81,7 @@
       }
     },
     destroyed() {
-      console.log('home destroyed');
+      // console.log('home destroyed');
     },
     activated() {
       this.$refs.scroll.scrollTo(0, this.saveY,50)
@@ -102,17 +102,25 @@
     },
     mounted() {
      // 1. 图片加载完成的事件监听
-      const refresh = debounce(this.$refs.scroll.refresh)
+      const refresh = debounce(this.$refs.scroll.refresh,50)
       // 3.监听item中图片加载完成
       this.$bus.$on('itemImageLoad', () => {
         // console.log('------');
-        // this.$refs.sc555555roll.refresh()
-        refresh()
+        // this.$refs.scroll.refresh()
+       refresh()
       })
     },
     methods: {
       // 事件监听相关的方法
-
+      debounce(func, delay) {
+        let timer = null
+          return function (...args) {
+          if(timer) clearTimeout(timer)
+          timer = setTimeout(() => {
+            func.apply(this,args)
+          }, delay)
+        }
+      },
       tabClick(index) {
         switch(index) {
           case 0:
